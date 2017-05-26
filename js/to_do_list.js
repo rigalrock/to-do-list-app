@@ -24,6 +24,9 @@ toDoList.controller('mainController', ['$scope', function ($scope) {
         return $scope.item;
     };
     
+    $scope.updateItem = function (itemContainer) {
+        localStorage.setItem('itemContainer', JSON.stringify($scope.itemContainer));  
+    };
     /*
     * This constructor function will create the new list-item objects
     */
@@ -43,5 +46,13 @@ toDoList.controller('mainController', ['$scope', function ($scope) {
         $scope.counter ++;
     };
     
+    $scope.addItemCheckedClass = function (obj) {
+        obj.isComplete = true;
+        var index = $scope.itemContainer.indexOf(obj);
+        if ( index !== -1) {
+            $scope.itemContainer[index] = obj;
+            $scope.updateItem($scope.itemContainer);
+        }
+    };
     
 }]);
