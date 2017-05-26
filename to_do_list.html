@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="toDoList">
+
+<head>
+    <meta charset="utf-8">
+    <title>Hello Angular Js</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/to_do_list.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="text-center">My To-Do-List</h1>
+    </header>
+    <hr>
+    <div ng-controller="mainController" class="container flex-box" id="wrapper">
+        <form id="input-container" ng-submit="createItemObject()">
+            <input type="text" placeholder="Enter your today's task..." ng-model="item.value">
+        </form>
+        <div id="list-container">
+            <ul class="list-group text-center">
+                <li class="list-item list-group-item list-group-item-action text-left" ng-repeat="sub in itemContainer track by $index">
+                    <input type="checkbox" class="check-box-list">
+                    {{ ($index + 1) + ". " + sub.value }}
+                    <label class="label pull-right">X</label>
+                </li>
+            </ul>
+            <br>
+            <span>Items pending: {{ itemContainer.length }}</span>
+        </div>
+    </div>
+    
+    
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//code.angularjs.org/latest/angular.min.js"></script>
+    <script src="js/to_do_list.js"></script>
+</body>
+
+</html>
