@@ -21,7 +21,7 @@
         <div id="list-container">
             <ul class="list-group text-center">
                 <li class="list-item list-group-item list-group-item-action text-left" ng-repeat="sub in itemContainer track by $index">
-                    <input type="checkbox" class="check-box-list">
+                    <input type="checkbox" class="check-box-list" ng-model="sub.isComplete" ng-change="addItemCheckedClass(sub)">
                     {{ ($index + 1) + ". " + sub.value }}
                     <label class="label pull-right">X</label>
                 </li>
