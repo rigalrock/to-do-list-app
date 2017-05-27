@@ -2,6 +2,10 @@ body {
     box-sizing: border-box;
 }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 .flex-box {
     display: flex;
     flex-direction: row;
@@ -57,7 +61,7 @@ input[type=checkbox] {
 }
 
 .check-box-list {
-    width: 5%;
+    margin-right: 10px;
 }
 
 .item-no {
@@ -71,6 +75,14 @@ input[type=checkbox] {
     overflow: hidden;
 }
 
+.hide-background {    
+    background-color: white;
+}
+
+.hide-background:hover {
+    background-color: white;
+}
+
 .edit-input {
     width: 80%;
     border: 0;
@@ -81,7 +93,7 @@ input[type=checkbox] {
 }
 
 .label {
-    font-size: 25px;
+    font-size: 20px;
     position: absolute;
     top: 10px;
     right: 0;
@@ -91,7 +103,19 @@ input[type=checkbox] {
     cursor: pointer;
 }
 
+.fa-trash-o {
+    color: black;
+}
+
 .line-through {
     text-decoration: line-through;
+    background-color: pink;
+}
+
+.line-through:hover {
+    background-color: pink;
+}
+
+.editing {
     background-color: grey;
 }
