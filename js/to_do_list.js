@@ -14,9 +14,12 @@ toDoList.controller('mainController', ['$scope', function ($scope) {
      * If localStorage already consist the array then use that else
      * make a new one.
      */
-    $scope.itemContainer = JSON.parse(localStorage.getItem('itemContainer')) || localStorage.setItem('itemContainer', JSON.stringify([]));
 
-    $scope.counter = 1; // Adding the counter to assign the Id's to items
+    localStorage.setItem('itemContainer', JSON.stringify([]))
+
+    $scope.itemContainer = JSON.parse(localStorage.getItem('itemContainer')) ;
+
+    $scope.counter = $scope.itemContainer.length + 1; // Adding the counter to assign the Id's to items
 
     /* 
      * This function will add the item to the item-container in localStorage 
@@ -76,7 +79,7 @@ toDoList.controller('mainController', ['$scope', function ($scope) {
     
     /* This function will retrun the count of the pending items */
     $scope.checkPendingItem = function () {
-        var len = $scope.itemContainer.length || 0;
+        var len = $scope.itemContainer.length;
         var count = 0;
         for (var i = 0; i < len; i++) {
             var obj = $scope.itemContainer[i];
