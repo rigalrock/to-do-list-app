@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Hello Angular Js</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>TO-DO-LIST</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
     <link rel="stylesheet" href="css/to_do_list.css">
@@ -33,7 +34,7 @@
                 </li>
             </ul>
             <br>
-            <span class="ng-cloak">Items pending: {{ checkPendingItem() }}</span>
+            <span class="ng-cloak">Items pending: <span class="badge">{{ checkPendingItem() }}</span></span>
         </div>
     </div>
 
