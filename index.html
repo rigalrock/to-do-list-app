@@ -19,8 +19,8 @@
             <input type="text" required placeholder="Enter your today's task..." ng-model="item.value">
         </form>
         <div id="list-container">
-            <ul class="list-group text-center">
-                <li class="list-item list-group-item list-group-item-action text-left" ng-repeat="sub in itemContainer track by $index" ng-class="{'line-through': changeClass(sub), 'hide-background': sub.editing}" ng-dblclick="editItem(sub)">
+            <ul class="list-group text-center ng-cloak">
+                <li class="list-item list-group-item list-group-item-action text-left ng-cloak" ng-repeat="sub in itemContainer track by $index" ng-class="{'line-through': changeClass(sub), 'hide-background': sub.editing}" ng-dblclick="editItem(sub)">
                     <span class="check-box-list">
                         <i class="fa" ng-class="{'fa-circle-o': !sub.isComplete, 'fa-check-circle-o': sub.isComplete}" ng-click="addItemCheckedClass(sub)"></i>
                     </span>
