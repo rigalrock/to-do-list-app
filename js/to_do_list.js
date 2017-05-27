@@ -28,10 +28,12 @@ toDoList.controller('mainController', ['$scope', function ($scope) {
         $scope.item = "";
         return $scope.item;
     };
-
+    
+    /* This function will update the localstorage with the changes */
     $scope.updateItem = function (itemContainer) {
         localStorage.setItem('itemContainer', JSON.stringify($scope.itemContainer));
     };
+    
     /*
      * This constructor function will create the new list-item objects
      */
@@ -52,21 +54,27 @@ toDoList.controller('mainController', ['$scope', function ($scope) {
         $scope.counter++;
     };
 
+    /* This function will look if the item is checked or not. based on that it will
+    * change the css-class in the 'li' element
+    */
     $scope.addItemCheckedClass = function (obj) {
-        obj.isComplete = true;
-        var index = $scope.itemContainer.indexOf(obj);
-        if (index !== -1) {
-            $scope.itemContainer[index] = obj;
+        if (obj.isComplete === false) {
+            obj.isComplete = true;
+            $scope.updateItem($scope.itemContainer);
+        }else {
+            obj.isComplete = false;
             $scope.updateItem($scope.itemContainer);
         }
     };
-
+    
+    /* This function will add the 'line-through' class on the 'li' if the item is checked */
     $scope.changeClass = function (obj) {
         if (obj.isComplete) {
-            return "line-through";
+            return true;
         }
     };
-
+    
+    /* This function will retrun the count of the pending items */
     $scope.checkPendingItem = function () {
         var len = $scope.itemContainer.length;
         var count = 0;
@@ -77,7 +85,6 @@ toDoList.controller('mainController', ['$scope', function ($scope) {
             }
         }
         return (len - count);
-        console.log("I am working fine");
     };
 
     /* This function will remove the element from the list on clicking the close button*/
