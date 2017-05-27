@@ -20,14 +20,17 @@
         </form>
         <div id="list-container">
             <ul class="list-group text-center">
-                <li class="list-item list-group-item list-group-item-action text-left" ng-repeat="sub in itemContainer track by $index">
+                <li class="list-item list-group-item list-group-item-action text-left" ng-repeat="sub in itemContainer track by $index" ng-class="changeClass(sub)" ng-dblclick="editItem(sub)">
                     <input type="checkbox" class="check-box-list" ng-model="sub.isComplete" ng-change="addItemCheckedClass(sub)">
-                    {{ ($index + 1) + ". " + sub.value }}
-                    <label class="label pull-right">X</label>
+                    
+                    <span class="item-no">{{ ($index + 1) + ". " }}</span>
+                    <span class="item-value" ng-hide="sub.editing" ng-dblclick="editItem">{{  sub.value }}</span>
+                    <input type="text" class="edit-input" ng-model="sub.value" ng-show="sub.editing" ng-blur="doneEdit(sub)" autofocus>
+                    <label class="label pull-right" ng-click="removeItem(sub)">X</label>
                 </li>
             </ul>
             <br>
-            <span>Items pending: {{ itemContainer.length }}</span>
+            <span>Items pending: {{ checkPendingItem() }}</span>
         </div>
     </div>
     
