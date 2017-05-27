@@ -76,7 +76,7 @@ toDoList.controller('mainController', ['$scope', function ($scope) {
     
     /* This function will retrun the count of the pending items */
     $scope.checkPendingItem = function () {
-        var len = $scope.itemContainer.length;
+        var len = $scope.itemContainer.length || 0;
         var count = 0;
         for (var i = 0; i < len; i++) {
             var obj = $scope.itemContainer[i];
