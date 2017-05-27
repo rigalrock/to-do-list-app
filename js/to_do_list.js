@@ -16,7 +16,7 @@ toDoList.controller('mainController', ['$scope', function ($scope) {
      */
     $scope.itemContainer = JSON.parse(localStorage.getItem('itemContainer')) || localStorage.setItem('itemContainer', JSON.stringify([]));
 
-    $scope.counter = $scope.itemContainer.length + 1; // Adding the counter to assign the Id's to items
+    $scope.counter = ($scope.itemContainer.length + 1) || 0; // Adding the counter to assign the Id's to items
 
     /* 
      * This function will add the item to the item-container in localStorage 
