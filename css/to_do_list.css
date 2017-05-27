@@ -38,6 +38,9 @@ body {
 }
 
 .list-group-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     position: relative;
     font-size: 18px;
 }
@@ -51,6 +54,30 @@ body {
 input[type=checkbox] {
     display: inline-block;
     margin: 10px 10px 10px 0;
+}
+
+.check-box-list {
+    width: 5%;
+}
+
+.item-no {
+    width: 5%;
+    margin-right: 5px;
+}
+
+.item-value {
+    width: 80%;
+    vertical-align: middle;
+    overflow: hidden;
+}
+
+.edit-input {
+    width: 80%;
+    border: 0;
+}
+
+.edit-input:focus {
+    outline: 0;
 }
 
 .label {
