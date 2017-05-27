@@ -16,25 +16,28 @@
     <hr>
     <div ng-controller="mainController" class="container flex-box" id="wrapper">
         <form id="input-container" ng-submit="createItemObject()">
-            <input type="text" placeholder="Enter your today's task..." ng-model="item.value">
+            <input type="text" required placeholder="Enter your today's task..." ng-model="item.value">
         </form>
         <div id="list-container">
             <ul class="list-group text-center">
-                <li class="list-item list-group-item list-group-item-action text-left" ng-repeat="sub in itemContainer track by $index" ng-class="changeClass(sub)" ng-dblclick="editItem(sub)">
-                    <input type="checkbox" class="check-box-list" ng-model="sub.isComplete" ng-change="addItemCheckedClass(sub)">
-                    
-                    <span class="item-no">{{ ($index + 1) + ". " }}</span>
-                    <span class="item-value" ng-hide="sub.editing" ng-dblclick="editItem">{{  sub.value }}</span>
+                <li class="list-item list-group-item list-group-item-action text-left" ng-repeat="sub in itemContainer track by $index" ng-class="{'line-through': changeClass(sub), 'hide-background': sub.editing}" ng-dblclick="editItem(sub)">
+                    <span class="check-box-list">
+                        <i class="fa" ng-class="{'fa-circle-o': !sub.isComplete, 'fa-check-circle-o': sub.isComplete}" ng-click="addItemCheckedClass(sub)"></i>
+                    </span>
+                    <span class="item-no ng-cloak">{{ ($index + 1) + ". " }}</span>
+                    <span class="item-value ng-cloak" ng-hide="sub.editing" ng-dblclick="editItem(sub)">{{  sub.value }}</span>
                     <input type="text" class="edit-input" ng-model="sub.value" ng-show="sub.editing" ng-blur="doneEdit(sub)" autofocus>
-                    <label class="label pull-right" ng-click="removeItem(sub)">X</label>
+                    <label class="label pull-right" ng-click="removeItem(sub)">
+                        <i class="fa fa-trash-o"></i>
+                    </label>
                 </li>
             </ul>
             <br>
-            <span>Items pending: {{ checkPendingItem() }}</span>
+            <span class="ng-cloak">Items pending: {{ checkPendingItem() }}</span>
         </div>
     </div>
-    
-    
+
+
     <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
     <script src="//code.angularjs.org/latest/angular.min.js"></script>
     <script src="js/to_do_list.js"></script>
