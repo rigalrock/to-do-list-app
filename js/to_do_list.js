@@ -55,4 +55,22 @@ toDoList.controller('mainController', ['$scope', function ($scope) {
         }
     };
     
+    $scope.changeClass = function (obj) {
+        if (obj.isComplete) {
+            return "line-through";
+        }
+    };
+    
+    $scope.checkPendingItem = function () {
+        var len = $scope.itemContainer.length;
+        var count = 0;
+        for (var i = 0; i < len; i++) {
+            var obj = $scope.itemContainer[i];
+            if (obj.isComplete) {
+                count++;
+            }
+        }
+        return (len - count);
+        console.log("I am working fine");
+    };
 }]);
