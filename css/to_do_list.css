@@ -21,12 +21,29 @@ header {
     max-width: 600px;
 }
 
+.arrow-container {
+    /*display: block;*/
+    width: 5%;
+    margin: auto;
+    text-align: center;
+}
+
+.fa-angle-down {
+    font-size: 30px;
+    text-align: center;
+    color: grey;
+}
+
 #input-container {
     width: 100%;
-    border: 2px solid grey;
+    border: 1px solid lightgrey;
     padding: 5px;
-    margin: 0 5px;
-    border-radius: 10px;
+    margin: 0 5px 10px;
+    /*border-radius: 10px;*/
+    box-shadow: 0px 20px 20px -20px grey;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
 #input-container input {
@@ -34,7 +51,9 @@ header {
     border: 0px;
     padding: 5px;
     width: 100%;
-    font-size: 16px;
+    font-size: 23px;
+    width: 85%;
+    margin: 0 auto;
 }
 
 #list-container {
@@ -52,7 +71,7 @@ header {
     flex-wrap:wrap;
     position: relative;
     font-size: 18px;
-    box-shadow: 5px 5px 5px grey;
+    box-shadow: 0px 10px 5px -5px grey;
 }
 
 .list-group-item:hover {
@@ -121,6 +140,12 @@ header {
 
 .editing {
     background-color: grey;
+}
+
+footer {
+    font-size: 10px;
+    color: grey;
+    margin-top: 30px;
 }
 
 @media screen and (min-width: 0px) and (max-width: 602px) {
