@@ -25,7 +25,7 @@
                     <span class="check-box-list">
                         <i class="fa" ng-class="{'fa-circle-o': !sub.isComplete, 'fa-check-circle-o': sub.isComplete}" ng-click="addItemCheckedClass(sub)"></i>
                     </span>
-                    <span class="item-no ng-cloak">{{ ($index + 1) + ". " }}</span>
+                    <!-- <span class="item-no ng-cloak">{{ ($index + 1) + ". " }}</span> -->
                     <span class="item-value ng-cloak" ng-hide="sub.editing" ng-dblclick="editItem(sub)">{{  sub.value }}</span>
                     <input type="text" class="edit-input" ng-model="sub.value" ng-show="sub.editing" ng-blur="doneEdit(sub)" autofocus>
                     <label class="label pull-right" ng-click="removeItem(sub)">
@@ -34,7 +34,7 @@
                 </li>
             </ul>
             <br>
-            <span class="ng-cloak">Items pending: <span class="badge">{{ checkPendingItem() }}</span></span>
+            <span class="ng-cloak" ng-show="itemContainer.length > 0">Items pending: <span class="badge">{{ checkPendingItem() }}</span></span>
         </div>
     </div>
 
