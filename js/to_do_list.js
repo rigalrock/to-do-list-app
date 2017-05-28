@@ -113,4 +113,28 @@ toDoList.controller('mainController', ['$scope', function ($scope) {
         obj.editing = false;
         $scope.updateItem(obj);
     };
+
+    /* Function to display the pending items */
+
+    $scope.showPendingStatus = false;
+    $scope.showCompletedStatus = false;
+    $scope.showAllStatus = true;
+
+    $scope.showPending = function () {
+        $scope.showAllStatus = false;
+        $scope.showPendingStatus = true;
+        $scope.showCompletedStatus = false;
+    };
+
+    $scope.showCompleted = function () {
+        $scope.showAllStatus = false;
+        $scope.showPendingStatus = false;
+        $scope.showCompletedStatus = true;
+    };
+
+    $scope.showAll = function () {
+        $scope.showAllStatus = true;
+        $scope.showPendingStatus = false;
+        $scope.showCompletedStatus = false;
+    };
 }]);
