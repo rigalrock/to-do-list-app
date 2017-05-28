@@ -17,6 +17,7 @@
     <hr>
     <div ng-controller="mainController" class="container flex-box" id="wrapper">
         <form id="input-container" ng-submit="createItemObject()">
+            <span class="arrow-container"  ng-show="itemContainer.length > 0"><i class="fa fa-angle-down"></i></span>
             <input type="text" required placeholder="Enter your today's task..." ng-model="item.value">
         </form>
         <div id="list-container">
@@ -37,8 +38,10 @@
             <span class="ng-cloak" ng-show="itemContainer.length > 0">Items pending: <span class="badge">{{ checkPendingItem() }}</span></span>
         </div>
     </div>
-
-
+    <footer class="text-center">
+        <p>Double-click to edit a todo</p>
+        <p>Made by Kanishka Mohan Madhuni</p>        
+    </footer>
     <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
     <script src="//code.angularjs.org/latest/angular.min.js"></script>
     <script src="js/to_do_list.js"></script>
