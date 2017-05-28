@@ -12,6 +12,10 @@ body {
     flex-wrap: wrap;
 }
 
+.fa {
+    color: grey;
+}
+
 header {
     /*margin-bottom: 10px;*/
     /*padding: 20px;*/
@@ -123,10 +127,6 @@ header {
 
 .label:hover {
     cursor: pointer;
-}
-
-.fa-trash-o {
-    color: black;
 }
 
 .line-through {
