@@ -20,13 +20,17 @@
             <span class="arrow-container"  ng-show="itemContainer.length > 0"><i class="fa fa-angle-down"></i></span>
             <input type="text" required placeholder="Enter your today's task..." ng-model="item.value">
         </form>
+        <div id="list-control-button-container">
+            <a href="#" class="control-btn btn btn-primary ng-cloak" ng-click="showAll()">All Items <span class="badge">{{ itemContainer.length }}</span></a>
+            <a href="#" class="control-btn btn btn-warning ng-cloak" ng-click="showPending()">Pending <span class="badge">{{ checkPendingItem() }}</span></a>
+            <a href="#" class="control-btn btn btn-success ng-cloak" ng-click="showCompleted()">Completed <span class="badge">{{ itemContainer.length - checkPendingItem() }}</span></a>
+        </div>
         <div id="list-container">
-            <ul class="list-group text-center ng-cloak">
+            <ul class="list-group text-center ng-cloak" ng-show="showAllStatus">
                 <li class="list-item list-group-item list-group-item-action text-left ng-cloak" ng-repeat="sub in itemContainer track by $index" ng-class="{'line-through': changeClass(sub), 'hide-background': sub.editing}" ng-dblclick="editItem(sub)">
                     <span class="check-box-list">
                         <i class="fa" ng-class="{'fa-circle-o': !sub.isComplete, 'fa-check-circle-o': sub.isComplete}" ng-click="addItemCheckedClass(sub)"></i>
                     </span>
-                    <!-- <span class="item-no ng-cloak">{{ ($index + 1) + ". " }}</span> -->
                     <span class="item-value ng-cloak" ng-hide="sub.editing" ng-dblclick="editItem(sub)">{{  sub.value }}</span>
                     <input type="text" class="edit-input" ng-model="sub.value" ng-show="sub.editing" ng-blur="doneEdit(sub)" autofocus>
                     <label class="label pull-right" ng-click="removeItem(sub)">
@@ -34,9 +38,31 @@
                     </label>
                 </li>
             </ul>
-            <br>
-            <span class="ng-cloak" ng-show="itemContainer.length > 0">Items pending: <span class="badge">{{ checkPendingItem() }}</span></span>
-        </div>
+            <ul class="list-group text-center ng-cloak" ng-show="showPendingStatus">
+                <li class="list-item list-group-item list-group-item-action text-left ng-cloak" ng-repeat="sub in itemContainer track by $index" ng-class="{'line-through': changeClass(sub), 'hide-background': sub.editing}" ng-dblclick="editItem(sub)" ng-show="!sub.isComplete">
+                    <span class="check-box-list">
+                        <i class="fa" ng-class="{'fa-circle-o': !sub.isComplete, 'fa-check-circle-o': sub.isComplete}" ng-click="addItemCheckedClass(sub)"></i>
+                    </span>
+                    <span class="item-value ng-cloak" ng-hide="sub.editing" ng-dblclick="editItem(sub)">{{  sub.value }}</span>
+                    <input type="text" class="edit-input" ng-model="sub.value" ng-show="sub.editing" ng-blur="doneEdit(sub)" autofocus>
+                    <label class="label pull-right" ng-click="removeItem(sub)">
+                        <i class="fa fa-trash-o"></i>
+                    </label>
+                </li>
+            </ul>
+            <ul class="list-group text-center ng-cloak" ng-show="showCompletedStatus">
+                <li class="list-item list-group-item list-group-item-action text-left ng-cloak" ng-repeat="sub in itemContainer track by $index" ng-class="{'line-through': changeClass(sub), 'hide-background': sub.editing}" ng-dblclick="editItem(sub)" ng-show="sub.isComplete">
+                    <span class="check-box-list">
+                        <i class="fa" ng-class="{'fa-circle-o': !sub.isComplete, 'fa-check-circle-o': sub.isComplete}" ng-click="addItemCheckedClass(sub)"></i>
+                    </span>
+                    <span class="item-value ng-cloak" ng-hide="sub.editing" ng-dblclick="editItem(sub)">{{  sub.value }}</span>
+                    <input type="text" class="edit-input" ng-model="sub.value" ng-show="sub.editing" ng-blur="doneEdit(sub)" autofocus>
+                    <label class="label pull-right" ng-click="removeItem(sub)">
+                        <i class="fa fa-trash-o"></i>
+                    </label>
+                </li>
+            </ul>
+        </div><!-- End of 'list-container' -->
     </div>
     <footer class="text-center">
         <p>Double-click to edit a todo</p>
