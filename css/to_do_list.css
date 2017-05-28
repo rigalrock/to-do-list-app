@@ -18,7 +18,7 @@ header {
 }
 
 #wrapper {
-    max-width: 650px;
+    max-width: 600px;
 }
 
 #input-container {
@@ -49,7 +49,7 @@ header {
 .list-group-item {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap:wrap;
     position: relative;
     font-size: 18px;
     box-shadow: 5px 5px 5px grey;
@@ -61,13 +61,8 @@ header {
     background-color: lightgrey;
 }
 
-input[type=checkbox] {
-    display: inline-block;
-    margin: 10px 10px 10px 0;
-}
-
 .check-box-list {
-    margin-right: 10px;
+    margin: auto 20px auto 0;
 }
 
 .item-no {
@@ -77,8 +72,9 @@ input[type=checkbox] {
 
 .item-value {
     width: 80%;
-    vertical-align: middle;
+    /*vertical-align: middle;*/
     overflow: hidden;
+    margin: auto auto;
 }
 
 .hide-background {    
@@ -91,18 +87,19 @@ input[type=checkbox] {
 
 .edit-input {
     width: 80%;
-    border: 0;
+    border: 1px solid grey;
 }
 
 .edit-input:focus {
-    outline: 0;
+    /*outline: 0;*/
 }
 
 .label {
     font-size: 20px;
-    position: absolute;
-    top: 10px;
-    right: 0;
+    /*position: absolute;*/
+    /*top: 10px;*/
+    /*right: 0;*/
+    margin: auto 0 auto 20px;
 }
 
 .label:hover {
@@ -115,13 +112,30 @@ input[type=checkbox] {
 
 .line-through {
     text-decoration: line-through;
-    background-color: pink;
+    background-color: rgba(57, 228, 57, 0.32);
 }
 
 .line-through:hover {
-    background-color: pink;
+    background-color: rgba(57, 228, 57, 0.32);
 }
 
 .editing {
     background-color: grey;
+}
+
+@media screen and (min-width: 0px) and (max-width: 602px) {
+    .label {
+        position: absolute;
+        top: 20%;
+        right: 0;
+        bottom: 20px;
+    }
+
+    .check-box-list {
+        margin-right: 10px;
+    }
+
+    .item-value {
+        margin-left: 10px;
+    }
 }
