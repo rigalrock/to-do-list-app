@@ -15,7 +15,11 @@ toDoList.controller('mainController', ['$scope', function ($scope) {
      * make a new one.
      */
 
-    localStorage.setItem('itemContainer', JSON.stringify([]))
+    if (window.localStorage.getItem('itemContainer') === null) {
+        
+        localStorage.setItem('itemContainer', JSON.stringify([]));
+    
+    }
 
     $scope.itemContainer = JSON.parse(localStorage.getItem('itemContainer')) ;
 
