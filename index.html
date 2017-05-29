@@ -21,9 +21,9 @@
             <input type="text" required placeholder="Enter your today's task..." ng-model="item.value">
         </form>
         <div id="list-control-button-container">
-            <a href="#all-items" class="control-btn btn btn-primary ng-cloak" ng-click="showAll()">Total Items <span class="badge">{{ itemContainer.length }}</span></a>
-            <a href="#pending-items" class="control-btn btn btn-warning ng-cloak" ng-click="showPending()">Pending <span class="badge">{{ checkPendingItem() }}</span></a>
-            <a href="#completed-items" class="control-btn btn btn-success ng-cloak" ng-click="showCompleted()">Completed <span class="badge">{{ itemContainer.length - checkPendingItem() }}</span></a>
+            <a href="#all-items" class="control-btn btn btn-primary ng-cloak" ng-class="{active: showAllStatus}" ng-click="showAll()">Total Items <span class="badge">{{ itemContainer.length }}</span></a>
+            <a href="#pending-items" class="control-btn btn btn-warning ng-cloak" ng-class="{active: showPendingStatus}" ng-click="showPending()">Pending <span class="badge">{{ checkPendingItem() }}</span></a>
+            <a href="#completed-items" class="control-btn btn btn-success ng-cloak" ng-class="{active: showCompletedStatus}" ng-click="showCompleted()">Completed <span class="badge">{{ itemContainer.length - checkPendingItem() }}</span></a>
         </div>
         <div id="list-container">
             <ul class="list-group text-center ng-cloak" ng-show="showAllStatus">
