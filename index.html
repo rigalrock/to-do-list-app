@@ -14,11 +14,10 @@
     <header>
         <h1 class="text-center">My To-Do-List</h1>
     </header>
-    <hr>
     <div ng-controller="mainController" class="container flex-box" id="wrapper">
         <form id="input-container" ng-submit="createItemObject()">
             <span class="arrow-container"  ng-show="itemContainer.length > 0"><i class="fa fa-angle-down"></i></span>
-            <input type="text" required placeholder="Enter your today's task..." ng-model="item.value">
+            <input type="text" required placeholder="What needs to be done?" ng-model="item.value">
         </form>
         <div id="list-control-button-container">
             <a href="#all-items" class="control-btn btn btn-primary ng-cloak" ng-class="{active: showAllStatus}" ng-click="showAll()">Total Items <span class="badge">{{ itemContainer.length }}</span></a>
@@ -65,7 +64,7 @@
         </div><!-- End of 'list-container' -->
     </div>
     <footer class="text-center">
-        <p>Double-click to edit a todo</p>
+        <p>Double-Click to edit a To-Do</p>
         <p>Made by Kanishka Mohan Madhuni</p>        
     </footer>
     <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
