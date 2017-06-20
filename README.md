@@ -28,6 +28,7 @@ In order to enter the task, we just need to enter the task name (could be anythi
 
 * HTML-5
 * CSS-3
+* Bootstrap
 * Javascript
 * Angular JS
 
